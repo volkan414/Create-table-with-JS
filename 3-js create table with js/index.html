@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create table</title>
+<style>
+    table,td,tr{
+        border: 1px solid rgb(52, 2, 2);
+    }
+</style>
+
+</head>
+<body>
+
+    <label for="satir">Satır Sayısını Giriniz  </label>
+    <input type="text" id="satir">
+    <br><br>
+    <label for="sutun">Sutun Sayısını Giriniz</label>
+    <input type="text" id="sutun">
+    <br><br>
+
+    <input type="button" value="Tablo Oluştur" id="olustur">
+
+    <div class="tablo"></div>
+    
+
+
+
+    <script >
+        var olustur = document.querySelector("#olustur");
+
+        olustur.onclick=function(){
+            let sayac=0;
+            let satir = document.querySelector("#satir").value;
+            let sutun = document.querySelector("#sutun").value;
+
+
+            var table = document.createElement("table");
+            for(var i=0; i<satir; i++ ){
+                var tr=document.createElement("tr");
+                table.appendChild(tr);
+                for (var j=0; j<sutun;j++){
+                    var td=document.createElement("td");
+                    td.innerHTML=sayac++;
+                    tr.appendChild(td);
+                };
+            }
+            document.querySelector(".tablo").innerHTML="";
+            document.querySelector(".tablo").appendChild(table);
+        };
+
+    </script>
+</body>
+</html>
